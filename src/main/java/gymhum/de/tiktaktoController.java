@@ -96,7 +96,7 @@ public class tiktaktoController{
 
     public boolean pruefe(boolean aufX) 
     {
-        boolean pruefXoX = aufX;
+        boolean pruefXoO = aufX;
         boolean horizontal = false;
         boolean senkrecht = false;
         boolean sRL = false;
@@ -108,9 +108,9 @@ public class tiktaktoController{
                 if(!getFelder()[b][h].getIstFrei()
                 && !getFelder()[b][h+1].getIstFrei()
                 && !getFelder()[b][h+2].getIstFrei()){
-                    if(getFelder()[b][h].getZustand() == pruefXoX
-                    && getFelder()[b][h+1].getZustand() == pruefXoX
-                    && getFelder()[b][h+2].getZustand() == pruefXoX
+                    if(getFelder()[b][h].getZustand() == pruefXoO
+                    && getFelder()[b][h+1].getZustand() == pruefXoO
+                    && getFelder()[b][h+2].getZustand() == pruefXoO
                     ){
                         horizontal = true;
                     }
@@ -125,9 +125,9 @@ public class tiktaktoController{
                 && !getFelder()[b+1][h].getIstFrei()
                 && !getFelder()[b+2][h].getIstFrei())
                 {
-                    if(getFelder()[b][h].getZustand() == pruefXoX
-                    && getFelder()[b+1][h].getZustand() == pruefXoX
-                    && getFelder()[b+2][h].getZustand() == pruefXoX) 
+                    if(getFelder()[b][h].getZustand() == pruefXoO
+                    && getFelder()[b+1][h].getZustand() == pruefXoO
+                    && getFelder()[b+2][h].getZustand() == pruefXoO) 
                     {
                         senkrecht = true;
                     }              
@@ -138,6 +138,34 @@ public class tiktaktoController{
         //schräg oben rechts nach unten links 
            for(int b = 0; b <= 2; b++){
             for(int h = 2; h <= 0; h--){
+                if(getFelder()[b][h].getIstFrei()
+                && getFelder()[b+1][h-1].getIstFrei()
+                &&getFelder()[b+2][h-2].getIstFrei())
+                {
+                    if(getFelder()[b][h].getIstFrei() == pruefXoO
+                    && getFelder()[b+1][h-1].getIstFrei() == pruefXoO
+                    &&getFelder()[b+2][h-2].getIstFrei() == pruefXoO)
+                    {
+                        sRL = true;
+                    }
+                }
+                
+            }
+        }
+        //Schräg oben links nach unten rechts
+        for(int b = 0; b <= 2; b++){
+            for(int h = 2; h >= 0; h--){
+                if(getFelder()[b][h].getIstFrei()
+                && getFelder()[b+1][h+1].getIstFrei()
+                &&getFelder()[b+2][h+2].getIstFrei())
+                {
+                    if(getFelder()[b][h].getIstFrei() == pruefXoO
+                    && getFelder()[b+1][h+1].getIstFrei() == pruefXoO
+                    && getFelder()[b+2][h+2].getIstFrei() == pruefXoO)
+                    {
+                        sLR = true;
+                    }
+                }
             }
         }
 
