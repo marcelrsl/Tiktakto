@@ -4,7 +4,6 @@ package gymhum.de;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import gymhum.de.model.Feld;
@@ -17,7 +16,7 @@ public class tiktaktoController{
     boolean activePlayer;
 
     public tiktaktoController() {
-        setFelder(new Feld [2] [2]);
+        setFelder(new Feld[3][3]);
         initFeld();
         setActivePlayer(true);
     }
@@ -47,16 +46,17 @@ public class tiktaktoController{
     @GetMapping("/tiktakto")
     public String ShowTiktakto(@RequestParam(name= "activePage", required = false, defaultValue = "tiktakto") String activePage, Model model) {
         model.addAttribute("felder", getFelder());
-        return "/html.index";
+        model.addAttribute("activePage", activePage);
+        return "index.html";
     } 
 
-    @GetMapping("resetspiel")
+    @GetMapping("/resetspiel")
     public String resetspiel(@RequestParam(name= "activePage", required = false, defaultValue = "tiktakto") String activePage, Model model){
         resetSpielFunction();
         return "redirect:/tiktakto";
     }
 
-    @GetMapping("/playerinteraction")
+    @GetMapping("/tikplayerinteraction")
     public String playerInteraction(@RequestParam(name= "activePage", required = false, defaultValue = "tiktakto")String activePage, @RequestParam(name ="column", required = true, defaultValue = "null")int column, Model model)
     {
         model.addAttribute("activePage", "tiktakto");
@@ -72,8 +72,8 @@ public class tiktaktoController{
     }
 
     private void initFeld(){
-        for(int b = 0; b <= 2; b++){
-            for(int h = 0; h <=2; h++){
+        for(int b = 0; b < 3; b++){
+            for(int h = 0; h < 3; h++){
                 getFelder()[b][h] = new Feld();
             }
         }
@@ -91,7 +91,7 @@ public class tiktaktoController{
     }
 
     public void resetFeld() {
-        setFelder(new Feld[2][2]);
+        setFelder(new Feld[3][3]);
     }
 
     public boolean pruefe(boolean aufX) 
@@ -172,7 +172,6 @@ public class tiktaktoController{
         if(horizontal || senkrecht || sRL || sLR){
             windetected = true;
         }
-        
         return windetected;
     }       
 

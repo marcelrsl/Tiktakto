@@ -38,6 +38,13 @@
               <a class="nav-link" th:href="@{/spiel}">4-Gewinnt</a>
           </li>
 
+          <li th:if="${activePage == 'tiktakto'}" class="nav-item">
+            <a class="nav-link active" th:href="@{/tiktakto}">tiktakto</a>
+          </li>
+          <li th:unless="${activePage == 'tiktakto'}" class="nav-item">
+              <a class="nav-link" th:href="@{/tiktakto}">tiktakto</a>
+          </li>
+
 
         </ul>
       </div>

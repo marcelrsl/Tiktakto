@@ -1,0 +1,17 @@
+<h2>Tiktakto</h2>
+<hr>
+<h4>MANN BJARNE!</h4>
+</tr>
+</thead>
+<tbody>
+    <tr th:each="feld: ${felder}">
+        <td th:each="f: ${feld}">
+            <span th:if="${f.getIstFrei()}==true">_</span>
+            <span th:unless="${f.getIstFrei()}==true">
+                <span th:if="${f.getZustand()}==true">X</span>
+                <span th:unless="${f.getZustand()}==true">O</span>
+            </span>
+        </td>
+    </tr>
+</tbody>
+</table>
