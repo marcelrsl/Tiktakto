@@ -1,0 +1,21 @@
+<h2>Filme</h2>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Titel</td>
+            <td>Länge</td>
+            <td>FSK</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tr th:each="film, counter: ${filme}">
+        <td th:text="${counter.count}"></td>
+        <td th:text="${film.getTitel()}"></td>
+        <td th:text="${film.getLaenge()}"></td>
+        <td th:text="${film.getFSK()}"></td>
+        <td>
+        </td>
+    </tr>
+</table>

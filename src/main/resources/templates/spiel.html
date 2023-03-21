@@ -1,0 +1,59 @@
+<h2>4-Gewinnt</h2>
+<hr>
+<h4 style="text-align: center;">
+    <p th:if="${activePlayer}==true">X ist dran</p>
+    <p th:unless="${activePlayer}==true">O ist dran</p>
+</h4>
+
+<h4 style="text-align: center;">
+    <p th:if="${winTrue}==true">
+        X hat gewonnen<br />
+        <a class="btn btn-primary" th:href="@{/resetgame}">Nochmal?</a>                
+    </p>
+    <p th:if="${winFalse}==true">O hat gewonnen<br />
+        <a class="btn btn-primary" th:href="@{/resetgame}">Nochmal?</a>                
+    </p>
+</h4>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <a class="btn btn-primary" th:href="@{/playerinteraction(column=${0})}">Setzen</a>                
+            </th>
+            <th>
+                <a class="btn btn-primary" th:href="@{/playerinteraction(column=${1})}">Setzen</a>                
+            </th>
+            <th>
+                <a class="btn btn-primary" th:href="@{/playerinteraction(column=${2})}">Setzen</a>                
+            </th>
+            <th>
+                <a class="btn btn-primary" th:href="@{/playerinteraction(column=${3})}">Setzen</a>                
+            </th>
+            <th>
+                <a class="btn btn-primary" th:href="@{/playerinteraction(column=${4})}">Setzen</a>                
+            </th>
+            <th>
+                <a class="btn btn-primary" th:href="@{/playerinteraction(column=${5})}">Setzen</a>                
+            </th>
+            <th>
+                <a class="btn btn-primary" th:href="@{/playerinteraction(column=${6})}">Setzen</a>                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="feld: ${felder}">
+            <td th:each="f: ${feld}">
+                <span th:if="${f.getIstFrei()}==true">_</span>
+                <span th:unless="${f.getIstFrei()}==true">
+                    <span th:if="${f.getZustand()}==true">X</span>
+                    <span th:unless="${f.getZustand()}==true">O</span>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
