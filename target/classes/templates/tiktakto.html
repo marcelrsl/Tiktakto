@@ -42,6 +42,7 @@
         <tr th:each="feld: ${felder}">
             <td th:each="f: ${feld}">
                 <span th:if="${f.getIstFrei()}==true">_</span>
+                <span th:if="${f.getZustand}"
             </td>
         </tr>
             
