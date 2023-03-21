@@ -1,17 +1,50 @@
 <h2>Tiktakto</h2>
 <hr>
 <h4>MANN BJARNE!</h4>
-</tr>
-</thead>
-<tbody>
-    <tr th:each="feld: ${felder}">
-        <td th:each="f: ${feld}">
-            <span th:if="${f.getIstFrei()}==true">_</span>
-            <span th:unless="${f.getIstFrei()}==true">
-                <span th:if="${f.getZustand()}==true">X</span>
-                <span th:unless="${f.getZustand()}==true">O</span>
-            </span>
-        </td>
-    </tr>
-</tbody>
+
+<table calss = "table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${0})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${0})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${1})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${2})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${3})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${4})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${5})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${6})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${7})}">Setzen</a>
+            </th>
+            <th>
+                <a class = "btn btn-primary" th:href="@{/Tikplayerinteraction(column=${8})}">Setzen</a>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="feld: ${felder}">
+            <td th:each="f: ${feld}">
+                <span th:if="${f.getIstFrei()}==true">_</span>
+            </td>
+        </tr>
+            
+        
+    </tbody>
 </table>
